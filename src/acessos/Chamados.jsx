@@ -63,28 +63,27 @@ export default function Chamados() {
           </button>
         </div>
 
-        <ul>
-          {chamadoss.map((chamado) => (
-            <li key={chamado.id}>
-              <div className="tx">
-                <p>Titulo</p>
-                <strong>{chamado.titulo}</strong> <br />
-                <p>Descrição/p>
-                {chamado.descricao}
-              </div>
+      <ul className="lista-chamados">
+  {chamadoss.map((chamado) => (
+    <li className="card-chamado" key={chamado.id}>
+      
+      <h3 className="titulo">{chamado.titulo}</h3>
 
-              <div className="bt">
-                <button onClick={() => navigate(`/editar/${chamado.id}`)}>
-                  Editar
-                </button>
+      <p className="descricao">{chamado.descricao}</p>
 
-                <button className="um" onClick={() => excluir(chamado.id)}>
-                  Excluir
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+      <div className="acoes">
+        <button onClick={() => navigate(`/editar/${chamado.id}`)}>
+          Editar
+        </button>
+        <button className="danger" onClick={() => excluir(chamado.id)}>
+          Excluir
+        </button>
+      </div>
+
+    </li>
+  ))}
+</ul>
+
       </div>
     </div>
   );

@@ -17,6 +17,56 @@ justify-content: center;
 align-items: center;
 
 }
+.lista-chamados {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card-chamado {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 250px;
+  min-height: 120px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-chamado .titulo {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.card-chamado .descricao {
+  flex: 1;
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.card-chamado .acoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-chamado button {
+  background: #005eff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-chamado button.danger {
+  background: #ff3b3b;
+}
 
 h2 {
   display: flex;
