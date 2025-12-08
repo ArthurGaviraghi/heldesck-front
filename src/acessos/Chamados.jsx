@@ -67,7 +67,9 @@ export default function Chamados() {
           {chamadoss.map((chamado) => (
             <li key={chamado.id}>
               <div className="tx">
+                <p>Titulo</p>
                 <strong>{chamado.titulo}</strong> <br />
+                <p>Descrição/p>
                 {chamado.descricao}
               </div>
 
