@@ -11,7 +11,7 @@ export default function Login() {
 
   const logar = async () => {
     try {
-      const res = await axios.post('https://helpdesck.onrender.com/login', { email, senha })
+      const res = await axios.post('https://helpdesck-1.onrender.com/login', { email, senha })
       localStorage.setItem('token', res.data.token)
       navigate('/chamados')
     } catch {

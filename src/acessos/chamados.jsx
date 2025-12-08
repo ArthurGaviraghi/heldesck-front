@@ -10,14 +10,14 @@ export default function chamadoss() {
   const token = localStorage.getItem('token')
 
   const carregar = async () => {
-    const res = await axios.get('https://helpdesck.onrender.com/chamados', {
+    const res = await axios.get('https://helpdesck-1.onrender.com/chamados', {
       headers: { Authorization: `Bearer ${token}` }
     })
     setchamadoss(res.data.chamadoss)
   }
 
   const excluir = async (id) => {
-    await axios.delete(`https://helpdesck.onrender.com/chamados/${id}`, {
+    await axios.delete(`https://helpdesck-1.onrender.com/chamados/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     carregar()

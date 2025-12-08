@@ -12,7 +12,7 @@ export default function Editarchamados() {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    axios.get('https://helpdesck.onrender.com/chamados', {
+    axios.get('https://helpdesck-1.onrender.com/chamados', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => {
       const chamados = res.data.chamadoss.find(t => t.id === parseInt(id))
@@ -21,7 +21,7 @@ export default function Editarchamados() {
   }, [id, token])
 
   const salvar = async () => {
-    await axios.put(`https://helpdesck.onrender.com/chamados/${id}`, { titulo, descricao }, {
+    await axios.put(`https://helpdesck-1.onrender.com/chamados/${id}`, { titulo, descricao }, {
       headers: { Authorization: `Bearer ${token}` }
     })
     navigate('/chamados')
