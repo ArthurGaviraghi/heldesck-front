@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import Login from "./acessos/Login.jsx"
 import Cadastro from "./acessos/Cadastro.jsx"
-import Chamados from "./acessos/chamados.jsx"
+import Chamados from "./acessos/Chamados.jsx"
 import Criar from "./acessos/Criar.jsx"
 import Editar from "./acessos/Editar.jsx"
 
