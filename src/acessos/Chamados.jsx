@@ -10,7 +10,7 @@ export default function chamadoss() {
   const token = localStorage.getItem('token')
 
   const carregar = async () => {
-    const res = await axios.get('https://helpdesck-1.onrender.com/chamados/', {
+    const res = await axios.get('https://helpdesck-1.onrender.com/chamados', {
       headers: { Authorization: `Bearer ${token}` }
     })
     setchamadoss(res.data.chamadoss)

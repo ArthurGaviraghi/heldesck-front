@@ -11,7 +11,7 @@ export default function Criarchamados() {
 
   const salvar = async () => {
     try {
-      await axios.post('https://helpdesck-1.onrender.com/chamados/', 
+      await axios.post('https://helpdesck-1.onrender.com/chamados', 
         { titulo, descricao },
         { headers: { Authorization: `Bearer ${token}` } }
       );
