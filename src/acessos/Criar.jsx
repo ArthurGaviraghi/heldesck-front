@@ -10,34 +10,49 @@ export default function Criarchamados() {
   const token = localStorage.getItem('token');
 
   const salvar = async () => {
+    if (!titulo || !descricao)
+      return alert("Preencha todos os campos");
+
     try {
-      await axios.post('https://helpdesck-1.onrender.com/chamados/', 
+      await axios.post(
+        "https://helpdesck-1.onrender.com/chamados",
         { titulo, descricao },
-        { headers: { Authorization: `Bearer ${token}` } }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+          }
+        }
       );
-      navigate('/chamados');
+
+      alert("Chamado criado com sucesso!");
+      navigate("/chamados");
+
     } catch (err) {
-      console.error("Erro ao criar chamado", err);
-      alert("Erro ao salvar chamados.");
+      console.error("Erro ao criar chamado:", err);
+      alert("Erro ao salvar chamado.");
     }
   };
 
   return (
-    <div class="flex">
-      <div class='conteiner'>
-      <h2>Criar chamados</h2>
-      <input
-        value={titulo}
-        onChange={(e) => setTitulo(e.target.value)}
-        placeholder="Título"
-      />
-      <input
-        value={descricao}
-        onChange={(e) => setDescricao(e.target.value)}
-        placeholder="Descrição"
-      />
-      <button onClick={salvar}>Salvar</button>
-    </div>
+    <div className="flex">
+      <div className="conteiner">
+        <h2>Criar Chamado</h2>
+
+        <input
+          placeholder="Título"
+          value={titulo}
+          onChange={(e) => setTitulo(e.target.value)}
+        />
+
+        <input
+          placeholder="Descrição"
+          value={descricao}
+          onChange={(e) => setDescricao(e.target.value)}
+        />
+
+        <button onClick={salvar}>Salvar</button>
+      </div>
     </div>
   );
 }

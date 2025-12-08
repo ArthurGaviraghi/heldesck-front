@@ -10,29 +10,34 @@ export default function Cadastro() {
   const navigate = useNavigate();
 
   const cadastrar = async () => {
-    if (!nome || !email || !senha) {
-      return alert("Preencha todos os campos");
-    }
+  if (!nome || !email || !senha) {
+    return alert("Preencha todos os campos");
+  }
 
-    try {
-      const resposta = await axios.post('https://helpdesck.onrender.com/usuarioS/', {
-        nome,
-        email,
-        senha,
-        perfil,
-      });
-
-      if (resposta.status === 201 || resposta.status === 200) {
-        alert("Cadastro realizado com sucesso!");
-        navigate('/login');
-      } else {
-        alert("Erro ao cadastrar.");
+  try {
+    const resposta = await axios.post(
+      "https://helpdesck-1.onrender.com/usuarios/",
+      { nome, email, senha, perfil },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
       }
-    } catch (erro) {
-      console.error("Erro no cadastro:", erro);
-      alert("Erro ao cadastrar usuário. Verifique se o email já está em uso.");
+    );
+
+    alert("Cadastro realizado com sucesso!");
+    navigate("/login");
+
+  } catch (erro) {
+    console.error("Erro no cadastro:", erro);
+
+    if (erro.response) {
+      alert(erro.response.data?.mensagem || "Erro no servidor");
+    } else {
+      alert("Erro de conexão ao cadastrar usuário.");
     }
-  };
+  }
+};
 
   return (
     <div className='flex'>

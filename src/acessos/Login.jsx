@@ -10,14 +10,25 @@ export default function Login() {
   const navigate = useNavigate()
 
   const logar = async () => {
-    try {
-      const res = await axios.post('https://helpdesck-1.onrender.com/auth/login', { email, senha })
-      localStorage.setItem('token', res.data.token)
-      navigate('/chamados')
-    } catch {
-      alert('Erro ao logar')
-    }
+  if (!email || !senha) {
+    return alert("Preencha todos os campos");
   }
+
+  try {
+    const res = await axios.post(
+      'https://helpdesck-1.onrender.com/auth/login',
+      { email, senha },
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    localStorage.setItem('token', res.data.token);
+    navigate('/chamados');
+
+  } catch (erro) {
+    console.error("Erro de login:", erro);
+    alert("Credenciais incorretas ou erro no servidor");
+  }
+};
 
   return (
     <div class='flex'>
