@@ -12,7 +12,7 @@ export default function Editarchamados() {
   const token = localStorage.getItem('token')
 
   useEffect(() => {
-    axios.get('https://helpdesck-1.onrender.com/chamados', {
+    axios.get('https://helpdesck-1.onrender.com/chamados/', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => {
       const chamados = res.data.chamadoss.find(t => t.id === parseInt(id))
