@@ -1,0 +1,45 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  gap: 1rem;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  color: #27ae60;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  .button-group {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 600px;
+  }
+}
