@@ -15,7 +15,7 @@ export default function Cadastro() {
     }
 
     try {
-      const resposta = await axios.post('https://helpdesck.onrender.com/usuario', {
+      const resposta = await axios.post('https://helpdesck.onrender.com/usuarioS/', {
         nome,
         email,
         senha,
