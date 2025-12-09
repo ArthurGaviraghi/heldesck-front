@@ -23,6 +23,7 @@ align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  color:0000;
 }
 
 .card-chamado {
@@ -35,17 +36,19 @@ align-items: center;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  color:00000;
 }
 
 .card-chamado .titulo {
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 8px;
+  color:00000;
 }
 
 .card-chamado .descricao {
   flex: 1;
-  color: #444;
+  color: #0000;
   font-size: 14px;
   margin-bottom: 10px;
 }
