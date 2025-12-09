@@ -48,7 +48,7 @@ align-items: center;
 
 .card-chamado .descricao {
   flex: 1;
-  color:#f0f0f0;
+  color:black;
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -60,7 +60,7 @@ align-items: center;
 
 .card-chamado button {
   background: #005eff;
-  color: white;
+  color: black;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
