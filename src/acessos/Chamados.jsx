@@ -17,7 +17,6 @@ export default function Chamados() {
         }
       });
 
-      // Ajuste conforme formato da resposta
       setChamadoss(res.data.chamadoss ?? res.data);
       
     } catch (err) {
@@ -50,40 +49,30 @@ export default function Chamados() {
     <div className="flex">
       <div className="conteiner">
         <div className="centralizar">
-          <h2>
-            <img
-              src="https://static.vecteezy.com/ti/vetor-gratis/p1/6711606-icone-lapis-isolado-em-fundo-branco-icone-lapis-moderno-e-sinal-simples-lapis-icone-design-ilustracao-lapis-desenhar-logo-design-vetor.jpg"
-              alt=""
-            />
-            Meus chamados
-          </h2>
-
+          <h2>Meus chamados</h2>
           <button className="btc" onClick={() => navigate("/criar")}>
             Criar Novo
           </button>
         </div>
 
-      <ul className="lista-chamados">
-  {chamadoss.map((chamado) => (
-    <li className="card-chamado" key={chamado.id}>
-      
-      <h3 className="titulo">{chamado.titulo}</h3>
-
-      <p className="descricao">{chamado.descricao}</p>
-
-      <div className="acoes">
-        <button onClick={() => navigate(`/editar/${chamado.id}`)}>
-          Editar
-        </button>
-        <button className="danger" onClick={() => excluir(chamado.id)}>
-          Excluir
-        </button>
-      </div>
-
-    </li>
-  ))}
-</ul>
-
+        <ul className="lista-chamados">
+          {chamadoss.map((chamado) => (
+            <li className="card-chamado" key={chamado.id}>
+              <h3 className="titulo">{chamado.titulo}</h3>
+              <p className="descricao">{chamado.descricao}</p>
+              <p className="status">Status: {chamado.status}</p>
+              <p className="prioridade">Prioridade: {chamado.prioridade}</p>
+              <div className="acoes">
+                <button onClick={() => navigate(`/editar/${chamado.id}`)}>
+                  Editar
+                </button>
+                <button className="danger" onClick={() => excluir(chamado.id)}>
+                  Excluir
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

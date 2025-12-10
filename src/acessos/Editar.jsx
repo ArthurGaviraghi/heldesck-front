@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 import "./acessos.css";
 
 export default function Editarchamados() {
   const [descricao, setDescricao] = useState('');
   const [titulo, setTitulo] = useState('');
+  const [status, setStatus] = useState('aberto'); // Novo campo
+  const [prioridade, setPrioridade] = useState('baixa'); // Novo campo
   const { id } = useParams();
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
@@ -21,6 +23,8 @@ export default function Editarchamados() {
     }).then(res => {
       setTitulo(res.data.titulo);
       setDescricao(res.data.descricao);
+      setStatus(res.data.status); // Novo campo
+      setPrioridade(res.data.prioridade); // Novo campo
     }).catch(err => {
       console.error("Erro ao buscar chamado:", err);
       alert("Erro ao carregar chamado");
@@ -32,7 +36,7 @@ export default function Editarchamados() {
     try {
       await axios.put(
         `https://helpdesck-1.onrender.com/chamados/${id}`,
-        { titulo, descricao },
+        { titulo, descricao, status, prioridade }, // Novos campos
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,6 +69,18 @@ export default function Editarchamados() {
           placeholder="Descrição"
           value={descricao}
           onChange={(e) => setDescricao(e.target.value)}
+        />
+
+        <input
+          placeholder="Status"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        />
+
+        <input
+          placeholder="Prioridade"
+          value={prioridade}
+          onChange={(e) => setPrioridade(e.target.value)}
         />
 
         <button onClick={salvar}>Salvar Alterações</button>

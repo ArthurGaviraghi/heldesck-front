@@ -6,6 +6,8 @@ import "./acessos.css";
 export default function Criarchamados() {
   const [descricao, setDescricao] = useState('');
   const [titulo, setTitulo] = useState('');
+  const [status, setStatus] = useState('aberto'); // Novo campo
+  const [prioridade, setPrioridade] = useState('baixa'); // Novo campo
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -16,7 +18,7 @@ export default function Criarchamados() {
     try {
       await axios.post(
         "https://helpdesck-1.onrender.com/chamados",
-        { titulo, descricao },
+        { titulo, descricao, status, prioridade }, // Novos campos
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -49,6 +51,18 @@ export default function Criarchamados() {
           placeholder="Descrição"
           value={descricao}
           onChange={(e) => setDescricao(e.target.value)}
+        />
+
+        <input
+          placeholder="Status"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        />
+
+        <input
+          placeholder="Prioridade"
+          value={prioridade}
+          onChange={(e) => setPrioridade(e.target.value)}
         />
 
         <button onClick={salvar}>Salvar</button>
